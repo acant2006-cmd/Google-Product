@@ -8,14 +8,14 @@ const scenarios = [
   {label: 'The winter routine', title: 'When the cold settles in, layer up.', copy: 'Wear the fleece as a cozy middle layer beneath an insulated coat. Pair with a warm base layer for colder days across the Northeast.', layers: ['Warm base layer', 'Camp fleece', 'Insulated coat']},
 ]
 function Arrow(){return <span aria-hidden="true">↗</span>}
-function ProductImage({detail = false}:{detail?:boolean}){return <div className={`product-photo ${detail ? 'detail-photo' : ''}`}><img src="/pullover.png" alt={detail ? 'Close view of the black fleece collar, snap placket, chest pocket, and multicolor Google G' : 'Google Super G Camp Fleece Black Pullover, front view'} /></div>}
+function ProductImage({detail = false}:{detail?:boolean}){return <div className={`product-photo ${detail ? 'detail-photo' : ''}`}><img src={`${import.meta.env.BASE_URL}pullover.png`} alt={detail ? 'Close view of the black fleece collar, snap placket, chest pocket, and multicolor Google G' : 'Google Super G Camp Fleece Black Pullover, front view'} /></div>}
 export default function App(){
   const [scenario,setScenario] = useState(0)
   const reduced = useReducedMotion()
   const entry = {initial: {opacity: 0, y: reduced ? 0 : 20}, animate: {opacity: 1, y: 0}, transition:{duration: .7}}
   return <>
     <section className="hero" id="top">
-      <video className="background-video" src="/hero.mp4" autoPlay={!reduced} muted loop playsInline aria-hidden="true" />
+      <video className="background-video" src={`${import.meta.env.BASE_URL}hero.mp4`} autoPlay={!reduced} muted loop playsInline aria-hidden="true" />
       <div className="veil"/>
       <motion.header {...entry} className="nav">
         <a href="#top" className="brand" aria-label="Google Camp Fleece home"><span className="google-word"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span className="brand-divider"/><span className="brand-merch">Merchandise</span></a>
